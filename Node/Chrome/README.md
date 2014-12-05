@@ -7,6 +7,7 @@ $ docker run -d \
         --name selenium-node-chrome \
         --env "HUB_PORT_4444_TCP_ADDR=ip.ip.ip.ip" \
         --env "HUB_PORT_4444_TCP_PORT=port" \
+        -p 5555:5555 \
         pihizi/selenium-node-chrome
 ```
 
