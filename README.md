@@ -16,6 +16,16 @@ docker run --name selenium-hub \
 ```
 docker run -d \
            --name selenium-node-chrome \
+           --link selenium-hub:hub \
+           pihizi/selenium-node-chrome
+
+```
+
+或者
+
+```
+docker run -d \
+           --name selenium-node-chrome \
            --env "HUB_PORT_4444_TCP_ADDR=ip.ip.ip.ip" \
            --env "HUB_PORT_4444_TCP_PORT=port" \
            pihizi/selenium-node-chrome
@@ -26,17 +36,25 @@ docker run -d \
 ```
 docker run -d \
            --name selenium-node-firefox \
+           --link selenium-hub:hub \
+           pihizi/selenium-node-firefox
+
+```
+
+```
+docker run -d \
+           --name selenium-node-firefox \
            --env "HUB_PORT_4444_TCP_ADDR=ip.ip.ip.ip" \
            --env "HUB_PORT_4444_TCP_PORT=port" \
            pihizi/selenium-node-firefox
 ```
 
-### [可选] 在其他电脑直接运行命令，将该电脑的浏览器注册到`selenium-hub`
+### [或者] 在其他电脑直接运行命令，将该电脑的浏览器注册到`selenium-hub`
 
 ```
 java -jar selenium-server-standalone-2.44.0.jar \
     -role webdriver \
-    -browser "browserName=macfirefox /Applications/Firefox.app/Contents/MacOS/firefox,maxinstance=1" \
+    -browser "browserName=firefox,maxinstance=1" \
     -hubHost ip.ip.ip.ip \
     -port port
 
