@@ -3,6 +3,10 @@ dockerfile-selenium
 
 采用Selenium的Grid和WebDriver架设测试服务器
 
+### 图例
+
+![流程](flow.jpg)
+
 ### 启动`selenium-hub`
 
 ```
